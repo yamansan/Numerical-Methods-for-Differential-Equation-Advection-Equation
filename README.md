@@ -89,35 +89,5 @@ The Burgers' equation is applied to simulate traffic dynamics, including congest
 - NumPy
 - Matplotlib
 
-### Installation
-Clone this repository:
-```bash
-$ git clone https://github.com/your-username/advection-burgers-simulation.git
-$ cd advection-burgers-simulation
-```
-
-Install dependencies:
-```bash
-$ pip install -r requirements.txt
-```
-
-### Running the Simulations
-
-1. **Advection Equation**:
-   ```bash
-   $ python advection_simulation.py
-   ```
-   Adjust parameters such as \( c \), \( \Delta x \), and \( \Delta t \) in the script.
-
-2. **Burgers' Equation**:
-   ```bash
-   $ python burgers_simulation.py
-   ```
-   Configure \( \nu \) and initial conditions as needed.
-
-### Visualizing Results
-The simulations generate plots for the scalar field \( u(x,t) \):
-- Time evolution of the solution.
-- Comparison of numerical schemes.
 
 
