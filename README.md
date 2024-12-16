@@ -17,9 +17,9 @@ By leveraging these techniques, the project achieves robust and accurate numeric
 ### Advection Equation
 The advection equation describes the transport of a scalar quantity (e.g., mass or energy) in a flow field. The one-dimensional form is given by:
 
-\[
+$$
 \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0,
-\]
+$$
 
 where:
 - \( u(x,t) \) is the transported quantity,
@@ -28,9 +28,9 @@ where:
 ### Burgers' Equation
 The Burgers' equation models viscous flow and traffic dynamics. The one-dimensional form is:
 
-\[
+$$
 \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2},
-\]
+$$
 
 where:
 - \( u(x,t) \) is the velocity field,
@@ -45,32 +45,32 @@ The project implements the following finite difference methods:
    - Introduces numerical diffusion to stabilize the solution.
    - Suitable for hyperbolic problems with shock waves.
    - Discretized as:
-     \[
+     $$
      \frac{u^{n+1}_i - u^n_i}{\Delta t} + c \frac{u^n_i - u^n_{i-1}}{\Delta x} = 0.
-     \]
+     $$
 
 2. **Forward Difference Scheme**:
    - Uses forward time differencing for time derivatives:
-     \[
+     $$
      \frac{u^{n+1}_i - u^n_i}{\Delta t} = -c \frac{u^n_{i+1} - u^n_{i-1}}{2\Delta x}.
-     \]
+     $$
 
 3. **Central Difference Scheme**:
    - Provides second-order accuracy in space:
-     \[
+     $$
      \frac{\partial u}{\partial x} \approx \frac{u_{i+1} - u_{i-1}}{2\Delta x}.
-     \]
+     $$
 
 ### Min-Mod Limiter
 To address the challenges of shock capturing and oscillations, the **Min-Mod Limiter** is employed. It ensures the preservation of mass and volume by preventing spurious oscillations:
 
-\[
+$$
 \phi(r) = \text{minmod}(r, 1) = \begin{cases}
     r & \text{if } 0 \leq r \leq 1, \\
     1 & \text{if } r > 1, \\
     0 & \text{if } r < 0.
 \end{cases}
-\]
+$$
 
 This limiter adapts the slope in regions with sharp gradients, balancing accuracy and stability.
 
@@ -88,3 +88,36 @@ The Burgers' equation is applied to simulate traffic dynamics, including congest
 - Python 3.8+
 - NumPy
 - Matplotlib
+
+### Installation
+Clone this repository:
+```bash
+$ git clone https://github.com/your-username/advection-burgers-simulation.git
+$ cd advection-burgers-simulation
+```
+
+Install dependencies:
+```bash
+$ pip install -r requirements.txt
+```
+
+### Running the Simulations
+
+1. **Advection Equation**:
+   ```bash
+   $ python advection_simulation.py
+   ```
+   Adjust parameters such as \( c \), \( \Delta x \), and \( \Delta t \) in the script.
+
+2. **Burgers' Equation**:
+   ```bash
+   $ python burgers_simulation.py
+   ```
+   Configure \( \nu \) and initial conditions as needed.
+
+### Visualizing Results
+The simulations generate plots for the scalar field \( u(x,t) \):
+- Time evolution of the solution.
+- Comparison of numerical schemes.
+
+
